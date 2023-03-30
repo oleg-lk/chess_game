@@ -46,7 +46,9 @@ class Matrix {
 
         //функция заполнения вектора значениями массива, аргументы функции = указатель на массив, размер массива
         void fill(T *array, size_t array_size){
+            /*Oleg Lk: array_size check !!!*/
             for (int k = 0; k < array_size; k++){
+                /*Oleg Lk: for (int k = 0...) redundant !!!*/
                 for (int i = 0; i < _rows; i++){
                     for (int j = 0; j < _columns; j++){
                         _vec[i * _columns + j] = (array[k]);

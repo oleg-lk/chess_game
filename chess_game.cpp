@@ -7,7 +7,12 @@
 //ход фигуры
 bool move_figure (Matrix<std::string>& chessboard, bool is_white, std::string command){
 
+    /*Oleg Lk: base check command !!!*/
+
     size_t row_index_1, row_index_2, col_index_1, col_index_2;
+
+    /*Oleg Lk: "b2b4" substr -> "b2" "b4" !!!*/
+    //bool getIndex(std::string strIndex, size_t row_index, size_t row_index)
 
     for (int i = 0; i < command.size(); i++){
         auto check_num = command[i];
@@ -25,6 +30,7 @@ bool move_figure (Matrix<std::string>& chessboard, bool is_white, std::string co
             //индекс строки = char кол-во строк - char command[1]
             row_index_1 = '8' - check_num;     
 
+            /*Oleg Lk: auto val = , operator() ???*/
             auto val = chessboard.operator()(row_index_1, col_index_1) = "--";
         }
          else if (i == 2){
@@ -33,12 +39,15 @@ bool move_figure (Matrix<std::string>& chessboard, bool is_white, std::string co
          }
          else if (i == 3){
             row_index_2 = '8' - check_num;
+            /*Oleg Lk: auto val = , operator() ???*/
             auto val = chessboard.operator()(row_index_2, col_index_2) = "wp";
          }       
     }  
 
+    /*Oleg Lk: ???*/
     chessboard.print();
 
+    /*Oleg Lk: is_white ???*/
     return is_white;
 }
 
@@ -57,6 +66,7 @@ int main(){
         " " , "a ", "b ", "c " , "d ", "e ", "f ", "g ", "h "
     };
 
+    /*Oleg Lk: !!!*/
     size_t arr_size = sizeof(arr)/sizeof(arr[0]);
 
     chessboard.fill(arr, arr_size);
@@ -64,6 +74,7 @@ int main(){
     chessboard.print();
     cout << endl;
 
+    /*Oleg Lk: auto !!!*/
     auto res = move_figure(chessboard, true, "b2b4");
 
 
